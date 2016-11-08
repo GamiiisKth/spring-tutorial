@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="personMaps" class="se.joshua.general.propertyMaps.PersonMaps"
+          scope="prototype">
+
+        <property name="stringMap">
+            <props>
+                <prop key="1">this</prop>
+                <prop key="2">is</prop>
+                <prop key="3">property</prop>
+                <prop key="4">of</prop>
+                <prop key="5">maps</prop>
+            </props>
+        </property>
+     </bean>
+
+</beans>

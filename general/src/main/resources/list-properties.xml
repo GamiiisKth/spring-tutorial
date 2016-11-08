@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="persons" class="se.joshua.general.listProperties.PersonList"
+          scope="prototype">
+
+        <constructor-arg name="firstName" value="list"/>
+        <constructor-arg name="lastName" value="properties"/>
+        <constructor-arg name="persons">
+
+            <list>
+                <value>hej</value>
+                <value>this</value>
+                <value>is</value>
+                <value>list</value>
+                <value>of</value>
+                <value>properties</value>
+            </list>
+        </constructor-arg>
+
+    </bean>
+
+</beans>
