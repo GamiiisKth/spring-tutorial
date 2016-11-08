@@ -3,16 +3,16 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="person" class="se.joshua.general.factoryBeanAndMethod.Person" scope="singleton"
-    factory-method="getInstance">
+    <bean id="person" class="se.joshua.spring.general.factoryBeanAndMethod.Person" scope="singleton"
+          factory-method="getInstance">
         <constructor-arg name="firstName" value="ali"/>
         <constructor-arg name="lastName" value="joshua"/>
         <property name="ssn" value="111"/>
 
      </bean>
 
-    <bean id="person2" class="se.joshua.general.factoryBeanAndMethod.Person" scope="singleton"
-    factory-bean="personFactory" factory-method="createPerson">
+    <bean id="person2" class="se.joshua.spring.general.factoryBeanAndMethod.Person" scope="singleton"
+          factory-bean="personFactory" factory-method="createPerson">
 
 
         <constructor-arg name="firstName" value="dennis"/>
@@ -22,7 +22,7 @@
 
 
     </bean>
-    <bean id="personFactory" class="se.joshua.general.factoryBeanAndMethod.PersonFactory"/>
+    <bean id="personFactory" class="se.joshua.spring.general.factoryBeanAndMethod.PersonFactory"/>
 
 
 </beans>
