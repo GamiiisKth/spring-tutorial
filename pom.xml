@@ -15,6 +15,7 @@
         <module>autowiring</module>
         <module>annotations</module>
         <module>expression-language</module>
+        <module>component</module>
     </modules>
 
 
