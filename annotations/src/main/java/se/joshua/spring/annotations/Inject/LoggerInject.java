@@ -1,37 +1,29 @@
-package se.joshua.spring.annotations;
+package se.joshua.spring.annotations.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import se.joshua.spring.annotations.ConsoleWriter;
+import se.joshua.spring.annotations.FileWriter;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  * @author Ali yusha {@literal <mailto:ali.yusha@so4it.com>}
  */
-public class Logger {
-    /**
-     * we can use AutoWired by constructor or by fields or by setters
-     */
+public class LoggerInject {
 
-    // There is other annotation which is called @Resources
-    // which is have same beahaviour as AutoWired
-
-    // @Autowired
+    @Inject
+   // @Named(value = "consoleWriter2")
     private ConsoleWriter consoleWriter;
 
-    // @Autowired
+    @Inject
     private FileWriter fileWriter;
 
-    @Autowired
-    public Logger(ConsoleWriter consoleWriter, FileWriter fileWriter) {
-        this.consoleWriter = consoleWriter;
-        this.fileWriter = fileWriter;
-    }
 
-
-    // @Autowired
     public void setConsoleWriter(ConsoleWriter consoleWriter) {
         this.consoleWriter = consoleWriter;
     }
 
-    // @Autowired
     public void setFileWriter(FileWriter fileWriter) {
         this.fileWriter = fileWriter;
     }
@@ -43,4 +35,5 @@ public class Logger {
     public void writeFile(String text) {
         fileWriter.write(text);
     }
+
 }

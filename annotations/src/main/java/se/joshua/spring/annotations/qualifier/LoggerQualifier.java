@@ -20,7 +20,11 @@ public class LoggerQualifier {
      * how we want to tell spring which one will be autoWired to ConsoleWriter
      * <p>
      * solution -> Qualifier
+     *
+     *
+     *
      */
+
 
 
     @Autowired(required = true)

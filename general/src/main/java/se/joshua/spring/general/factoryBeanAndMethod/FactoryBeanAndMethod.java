@@ -1,7 +1,6 @@
 package se.joshua.spring.general.factoryBeanAndMethod;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import se.joshua.general.*;
 
 /**
  * @author Ali yusha {@literal <mailto:ali.yusha@so4it.com>}
