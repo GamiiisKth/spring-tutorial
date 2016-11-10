@@ -16,19 +16,23 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
+<!--
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             /WEB-INF/spring/*.xml
         </param-value>
     </context-param>
-
-
-
+-->
+<!--
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/endpoint-servlet.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class> org.springframework.web.context.ContextLoaderListener </listener-class>
+    </listener>-->
 
     <!-- Spring dispatcher servlet -->
     <servlet>
@@ -40,7 +44,7 @@
 
     <servlet-mapping>
         <servlet-name>endpoint</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 
