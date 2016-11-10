@@ -3,6 +3,8 @@ package se.joshua.spring.web.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author Ali yusha {@literal <mailto:ali.yusha@so4it.com>}
  *
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * remember the mvc will be load on servelet
  */
 
-@Controller("offer")
+@Controller
 public class OffersController {
 
 
@@ -24,8 +26,9 @@ public class OffersController {
      */
 
     @RequestMapping("/")
-    public String showHome() {
+    public String showHome(HttpSession session) {
 
+        session.setAttribute("name","happy");
         // this name will be translate to view
         return "index";
     }

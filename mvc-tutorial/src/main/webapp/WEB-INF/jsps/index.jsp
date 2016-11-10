@@ -12,5 +12,7 @@
   </head>
   <body>
   its works
+
+<p>Session: <%=session.getAttribute("name")%> </p>
   </body>
 </html>

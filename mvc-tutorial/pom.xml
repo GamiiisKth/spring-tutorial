@@ -41,9 +41,10 @@
                     <port>8080</port>
                     <url>http://localhost:8080/</url>
                     <server>TomcatServer</server>
-                    <!--<path>/</path>-->
-                    <path>/offer</path>
+                    <path>/</path>
+
                 </configuration>
+
             </plugin>
         </plugins>
     </build>

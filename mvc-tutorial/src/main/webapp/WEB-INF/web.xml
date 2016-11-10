@@ -25,14 +25,13 @@
         </param-value>
     </context-param>
 -->
-<!--
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/endpoint-servlet.xml</param-value>
     </context-param>
     <listener>
         <listener-class> org.springframework.web.context.ContextLoaderListener </listener-class>
-    </listener>-->
+    </listener>
 
     <!-- Spring dispatcher servlet -->
     <servlet>
