@@ -4,6 +4,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,6 +21,21 @@ public class Test {
 
             OffersDao offersDao = (OffersDao) context.getBean("offersDao");
 
+
+
+            List<Offer> offersList = new ArrayList<Offer>();
+
+            offersList.add(new Offer(4,"Steve", "steve@caveofprogramming.com", "Cash for software."));
+            offersList.add(new Offer(5,"Joe", "joe@caveofprogramming.com", "Elegant web design"));
+
+            int[] rvals = offersDao.create(offersList);
+
+
+            for(int i : rvals){
+                System.out.println(i);
+            }
+
+
             List<Offer> offers = offersDao.getOffer();
             offers.forEach(System.out::println);
 
@@ -30,6 +46,9 @@ public class Test {
         }
 
     }
+
+
+
 }
 
 

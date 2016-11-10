@@ -1,9 +1,14 @@
 package se.joshua.spring.component.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -18,16 +23,16 @@ import java.util.List;
 @Component("offersDao")
 public class OffersDao {
 
-    private JdbcTemplate jdbc;
+    private NamedParameterJdbcTemplate jdbc;
 
     @Autowired
     public void setDataSource(DataSource jdbc) {
-        this.jdbc = new JdbcTemplate(jdbc);
+        this.jdbc = new NamedParameterJdbcTemplate(jdbc);
     }
 
     public List<Offer> getOffer() {
 
-        return jdbc.query("select * from offers", new RowMapper<Offer>() {
+        return jdbc.query("select * from offers ", new RowMapper<Offer>() {
             @Override
             public Offer mapRow(ResultSet resultSet, int i) throws SQLException {
                 Offer offer = new Offer();
@@ -40,5 +45,19 @@ public class OffersDao {
             }
         });
     }
+
+    /**
+     *
+     * @param offers, all offer will be inserted or not. if operation fails it will be rollback start state
+     * @return
+     */
+    @Transactional
+    public int[] create(List<Offer> offers) {
+
+        SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
+
+        return jdbc.batchUpdate("insert into offers (id, name, text, email) values (:id, :name, :text, :email)", params);
+    }
+
 
 }
