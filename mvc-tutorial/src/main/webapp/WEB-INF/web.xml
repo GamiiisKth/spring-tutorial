@@ -17,22 +17,16 @@
     </welcome-file-list>
 
 
-<!--
+    <!-- Load dao.xml-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>
-            /WEB-INF/spring/*.xml
+        <param-value>classpath*:/se/joshua/spring/web/config/offer-dao-context.xml,
+            classpath*:/se/joshua/spring/web/config/offer-service-context.xml
         </param-value>
-    </context-param>
--->
-<!--
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/endpoint-servlet.xml</param-value>
     </context-param>
     <listener>
         <listener-class> org.springframework.web.context.ContextLoaderListener </listener-class>
-    </listener>-->
+    </listener>
 
     <!-- Spring dispatcher servlet -->
     <servlet>

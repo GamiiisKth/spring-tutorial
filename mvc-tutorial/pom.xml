@@ -33,6 +33,12 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
     </dependencies>
 
 
@@ -47,8 +53,22 @@
                     <port>8080</port>
                     <url>http://localhost:8080/</url>
                     <server>TomcatServer</server>
-                    <!--<path>/</path>-->
-                    <path>/offer</path>
+                    <path>/</path>
+
+                   <!-- <warDirectory>target/mvc-tutorial-0.0.1-SNAPSHOT.war</warDirectory>
+                    <webapps>
+                        <webapp>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <version>${project.version}</version>
+                            <type>war</type>
+                        </webapp>
+                    </webapps>
+
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+
+
+-->
                 </configuration>
             </plugin>
         </plugins>
