@@ -17,6 +17,9 @@
     <!--we want the annotation @controller to be find so this bean will allow us-->
     <mvc:annotation-driven/>
 
+    <!--this means even subfolder can be accessed /**  -->
+    <mvc:resources mapping="/static/**" location="/resources/"/>
+
 
     <!--  this bean will translate the RequestMapping returned name to view -->
     <bean id="jspViewResolver" class=" org.springframework.web.servlet.view.InternalResourceViewResolver">

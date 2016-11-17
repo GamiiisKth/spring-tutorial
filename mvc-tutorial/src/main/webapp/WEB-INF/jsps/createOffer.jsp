@@ -1,17 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: joshuapro
-  Date: 2016-11-14
-  Time: 22:29
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+         pageEncoding="US-ASCII"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>create offer</title>
+    <link href="${pageContext.request.contextPath}/static/css/main.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <title>Insert title here</title>
 </head>
 <body>
 
-welcome you can now create a new offers
+
+
+<form method="post" action="${pageContext.request.contextPath}/doCreate">
+
+    <table class="formtable">
+        <tr><td class="label">Name: </td><td><input class="control" name="name" type="text" /></td></tr>
+        <tr><td class="label">Email: </td><td><input class="control"  name="email" type="text" /></td></tr>
+        <tr><td class="label">Your offer: </td><td><textarea class="control"  name="text" rows="10" cols="10"></textarea></td></tr>
+        <tr><td class="label"> </td><td><input class="control"  value="Create advert" type="submit" /></td></tr>
+    </table>
+
+</form>
+
 </body>
 </html>
