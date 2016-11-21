@@ -10,8 +10,9 @@
 <head>
     <title>Title</title>
 </head>
-<body>
-offer created : <a href="${pageContext.request.contextPath}/offers">click here to view current offer</a>
 
+<body>
+an error has been occurred, please use browser back button or come back later
 </body>
+
 </html>

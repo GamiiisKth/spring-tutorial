@@ -13,6 +13,7 @@
     <!--only mvc will be loaded to servlet-->
     <!--this bean will load @controller bean to servlet-->
     <context:component-scan base-package="se.joshua.spring.web.controllers"/>
+    <context:component-scan base-package="se.joshua.spring.web.util"/>
 
     <!--we want the annotation @controller to be find so this bean will allow us-->
     <mvc:annotation-driven/>

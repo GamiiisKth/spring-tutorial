@@ -17,6 +17,7 @@
         <module>expression-language</module>
         <module>component</module>
         <module>mvc-tutorial</module>
+        <module>aspects</module>
 
     </modules>
 

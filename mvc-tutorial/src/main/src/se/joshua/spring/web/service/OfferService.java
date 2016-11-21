@@ -16,8 +16,6 @@ import java.util.List;
 @Service
 public class OfferService {
 
-    //
-
     private OffersDao offersDao;
 
     @Autowired
@@ -30,5 +28,13 @@ public class OfferService {
         return offersDao.getOffers();
     }
 
+
+    public void createOffer(Offer offer) {
+        offersDao.create(offer);
+    }
+
+    public Offer getOffer(int id) {
+      return   offersDao.getOffer(id);
+    }
 
 }

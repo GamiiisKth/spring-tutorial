@@ -14,7 +14,6 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-
     /**
      * the path which will map the request ("/")
      * @return

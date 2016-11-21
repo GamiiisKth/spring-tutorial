@@ -1,13 +1,29 @@
 package se.joshua.spring.web.dao;
 
+import se.joshua.spring.web.util.ValidEmail;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 /**
  * @author Ali Yusha {@literal <mailto:Ali.yusha@so4it.com/>}
  */
 public class Offer {
 
     private int id;
+
+    @NotNull
+    @Size(min = 2, max = 100, message = "Name must be between 2 and 100 character")
     private String name;
+
+    @NotNull
+    //@Pattern(regexp = ".*\\@.*\\..*", message = "this is not appear to be valid email address ")
+    @ValidEmail(min = 6,message = "this email address is not valid address")
     private String email;
+
+    @NotNull
+    @Size(min = 10, max = 100 , message = "must be 10 to 100 ")
     private String text;
 
 

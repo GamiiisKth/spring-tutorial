@@ -2,9 +2,7 @@ package se.joshua.spring.web.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
+import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +46,28 @@ public class OffersDao {
         });
     }
 
+    public Offer getOffer(int id) {
+        MapSqlParameterSource params = new MapSqlParameterSource();
+        params.addValue("id", id);
+
+        return jdbc.queryForObject("select * from offers where id=:id", params,
+                new RowMapper<Offer>() {
+
+                    public Offer mapRow(ResultSet rs, int rowNum)
+                            throws SQLException {
+                        Offer offer = new Offer();
+
+                        offer.setId(rs.getInt("id"));
+                        offer.setName(rs.getString("name"));
+                        offer.setText(rs.getString("text"));
+                        offer.setEmail(rs.getString("email"));
+
+                        return offer;
+                    }
+
+                });
+    }
+
     /**
      * @param offers, all offer will be inserted or not. if operation fails it will be rollback start state
      * @return
@@ -58,6 +78,11 @@ public class OffersDao {
         SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
 
         return jdbc.batchUpdate("insert into offers (id, name, text, email) values (:id, :name, :text, :email)", params);
+    }
+
+    public boolean create(Offer offer) {
+        BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);
+        return jdbc.update("insert into offers (name, text, email) values (:name, :text, :email)", params) == 1;
     }
 
 
