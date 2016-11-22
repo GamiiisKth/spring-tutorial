@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  *
  * http://viralpatel.net/blogs/spring-mvc-exception-handling-controlleradvice-annotation/
  *
- * @ControllerAdvice
+ * @ControllerAdvice  This annotation is used to define
 
- * This annotation is used to define
+ *
  * @ExceptionHandler,
  * @InitBinder,
  * @ModelAttribute
