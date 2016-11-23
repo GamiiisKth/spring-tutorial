@@ -4,8 +4,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Ali yusha {@literal <mailto:ali.yusha@so4it.com>}
- *
- * https://www.mkyong.com/spring/spring-aop-examples-advice/
+ *         <p>
+ *         https://www.mkyong.com/spring/spring-aop-examples-advice/
  */
 public class App {
 
@@ -15,7 +15,6 @@ public class App {
         Camera camera = (Camera) context.getBean("camera");
 
         camera.snap();
-
         context.close();
 
     }

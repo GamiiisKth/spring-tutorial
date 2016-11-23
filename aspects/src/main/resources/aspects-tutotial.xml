@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <aop:config>
+        <!--this bean will executed after/before the Logger.aboutTakePhoto -->
+        <aop:pointcut id="snap" expression="execution(void se.joshua.spring.aspects.Camera.snap())"/>
+        <aop:aspect id="loggerAspect" ref="logger">
+            <aop:before method="aboutTakePhoto" pointcut-ref="snap" />
+        </aop:aspect>
+    </aop:config>
 
 
     <bean id="camera" class="se.joshua.spring.aspects.Camera"/>
+    <bean id="logger" class="se.joshua.spring.aspects.Logger"/>
+
+
 </beans>
