@@ -1,0 +1,58 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <!--
+        <filter-name>springSecurityFilterChain</filter-name>
+        We must create a bean with this filter name
+    -->
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:user-service>
+                <security:user name="ali" authorities="admin" password="ali"/>
+                <security:user name="dunya" authorities="admin" password="dunya"/>
+            </security:user-service>
+        </security:authentication-provider>
+
+        <!-- this bean apply to get authorities info from database -->
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+
+    <!--use-expressions="true" has been set because we want to use  spring expression -->
+    <security:http use-expressions="true">
+        <!--/**  all sub directory  will be denied-->
+
+
+        <!-- you can access this url if you are one of security:user -->
+        <security:intercept-url pattern="/createOffer" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/doCreate" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/offercreated" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/offers" access="permitAll"/>
+        <!--
+                <security:intercept-url pattern="/login" access="permitAll"/>
+        -->
+        <security:intercept-url pattern="/" access="permitAll"/>
+        <security:intercept-url pattern="/newaccount" access="permitAll"/>
+        <security:intercept-url pattern="/createdaccount" access="permitAll"/>
+        <security:intercept-url pattern="/accountcreated" access="permitAll"/>
+
+        <security:intercept-url pattern="/static/**" access="permitAll"/>
+
+        <security:intercept-url pattern="/**" access="denyAll"/>
+
+
+        <!--form login for access will be generate it by spring it self-->
+        <security:form-login/>
+    </security:http>
+
+
+</beans>
