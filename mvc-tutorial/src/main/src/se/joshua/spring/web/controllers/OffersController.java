@@ -28,7 +28,6 @@ import java.util.List;
 @Controller
 public class OffersController {
 
-
     private OfferService offerService;
 
     @Autowired
@@ -38,6 +37,7 @@ public class OffersController {
 
 
     // se the class DataBaseErrorClass how we catch the exception
+    @RequestMapping(value = "/offers", method = RequestMethod.GET)
     public String showOffers(Model model) {
 
         List<Offer> offers = offerService.getOffers();

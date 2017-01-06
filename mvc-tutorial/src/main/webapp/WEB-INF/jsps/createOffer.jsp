@@ -12,7 +12,7 @@
 
 
 
-<sf:form method="post" action="${pageContext.request.contextPath}/doCreate" commandName="offer">
+<sf:form method="post" action="${pageContext.request.contextPath}/doCreate" commandName="user" >
 
     <table class="formtable">
         <tr><td class="label">Name: </td><td><input class="control" name="name" type="text" /> <br/><sf:errors path="name" cssClass="error"></sf:errors></td></tr>
@@ -21,7 +21,6 @@
         <tr><td class="label"> </td><td><input class="control"  value="Create advert" type="submit" /> <br/><sf:errors path="name" cssClass="error"></sf:errors></td></tr>
     </table>
 
-</form>
 </sf:form>
 </body>
 </html>
