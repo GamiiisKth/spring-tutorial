@@ -3,7 +3,7 @@ package se.joshua.spring.general.factoryBeanAndMethod;
 /**
  * @author Ali yusha {@literal <mailto:ali.yusha@so4it.com>}
  */
-public class Person {
+public class  Person {
 
    private String firstName;
    private String lastName;
